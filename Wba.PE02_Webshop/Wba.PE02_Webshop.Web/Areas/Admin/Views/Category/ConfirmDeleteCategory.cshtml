@@ -1,0 +1,16 @@
+﻿@model CategoryDeleteCategoryViewModel;
+@{
+    ViewData["Title"] = "ConfirmDeleteCategory";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-area="Admin" asp-route="DeleteCategory" method="post">
+    <input asp-for="CategoryId" />
+    <div class="alert alert-primary">
+        Are you sure you want to delete this brand? : <b>Id: @Model.CategoryId  - @Model.Category</b>
+    </div>
+
+    <a class="btn btn-danger" asp-area="Admin" asp-route="CategoriesAdminOverview">NO</a>
+    <button type="submit" class="btn btn-success">YES</button>
+</form>

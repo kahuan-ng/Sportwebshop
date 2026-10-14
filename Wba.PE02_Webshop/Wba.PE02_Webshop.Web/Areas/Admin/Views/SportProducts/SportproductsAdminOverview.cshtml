@@ -1,0 +1,27 @@
+﻿@model AdminOverviewViewModel
+@{
+    ViewData["Title"] = "Admin Overview - Sportproducts";
+
+    ViewBag.Controller = "SportProducts";
+    ViewBag.Update = "UpdateSportProduct";
+    ViewBag.Delete = "ConfirmDeleteSportproduct";
+    ViewBag.Reviews = "ReviewsSportproduct";
+    ViewBag.Add = "AddSportproduct";
+
+    ViewBag.Info = "Sportproduct";
+
+
+    @if (Model.Objects.Count == 1)
+    {
+        ViewBag.Object = "Sportproduct";
+    }
+
+    else
+    {
+        ViewBag.Object = "Sportproducts";
+    }
+
+
+}
+
+<partial name="_AdminOverviewPartialView" model="Model"></partial>

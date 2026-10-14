@@ -1,0 +1,23 @@
+﻿@using Wba.PE02_Webshop.Web.ViewModels.FeatureViewModels
+@model FeatureIndexViewModel
+@{
+    ViewData["Title"] = "Features";
+}
+
+<h1>Categories</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            @foreach (var f in Model.Features)
+            {
+            <tr>
+                @* <td><img asp-append-version="true" src=/images/@sp.ProductImage alt="ProductImage-@sp.ProductImage"></td> *@
+                <td>@f.BaseContent</td>
+            </tr>
+        }
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>

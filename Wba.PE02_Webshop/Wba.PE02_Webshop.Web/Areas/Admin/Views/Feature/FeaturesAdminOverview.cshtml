@@ -1,0 +1,61 @@
+﻿@model FeaturesAdminOverviewViewModel
+@{
+    ViewData["Title"] = "Admin Overview - Features";
+
+    @if (Model.Features.Count == 1)
+    {
+        ViewBag.Object = "Feature";
+    }
+
+    else
+    {
+        ViewBag.Object = "Features";
+    }
+
+}
+
+<div id="filter">
+    <main id="AdminOverview">
+    <header class = "d-flex flex-column align-items-center mb-3">
+            <h1 class="text-center">@ViewData["Title"]</h1>
+
+            <div class="d-flex justify-content-center align-items-baseline gap-3 mb-3">
+                <a class="btn btn-outline-primary" asp-area="Admin" asp-route="AddFeature">Add Feature</a>
+                <p id="product-count">@Model.Features.Count @ViewBag.Object</p>
+            </div>
+
+            <partial name="_AdminNavigationbarPartialView"></partial>
+
+        </header>
+
+        <section>
+            <table class="table shadow">
+                <thead class=" table-secondary">
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Productname</th>
+                        <th class="bg-warning" scope="col">Category</th>
+                        <th scope="col">Actions</th>
+                        <th scope="col">Reviews</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var f in Model.Features)
+                    {
+                        <tr>
+                            <th scope="row">@f.BaseId</th>
+                            <td>@f.BaseContent</td>
+                            <td>@f.AttributeCategory</td>
+                            <td id="ProductCRUDActions">
+                                <a asp-area="Admin" asp-route="UpdateFeature" asp-route-id="@f.BaseId" class="btn btn-primary">Update</a>
+                                <a asp-area="Admin" asp-route="ConfirmDeleteFeature" asp-route-id="@f.BaseId" class="btn btn-outline-danger">Delete</a>
+                            </td>
+
+                            <td><a class="btn btn-warning" asp-area="" asp-controller="feature" asp-action="FeatureReviews" asp-route-id="@f.BaseId" class="product-card">Reviews</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </section>
+    </main>
+</div>

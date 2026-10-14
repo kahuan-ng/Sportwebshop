@@ -1,0 +1,61 @@
+﻿h1 {
+    text-align: center;
+}
+
+div#admin-header {
+    background-color:lightgray;
+    text-align:center;
+    padding: 1rem;
+    border-radius:1rem 1rem 0 0;
+    font-size: x-large;
+}
+
+div#admin-links {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+div#admin-links a {
+    display: inline-block;
+    margin: 1px;
+    padding: 0.5rem;
+    border-radius:0.5rem;
+}
+
+#underline {
+    border: 1px dotted black;
+    margin: 0 auto 1rem auto;
+    width: 50%;
+}
+
+/* Brand AdminOverview */
+
+#brand-overview article#brand-dashboard {
+    text-align: center;
+    justify-items: center;
+    padding-top:1rem;
+}
+
+#brand-overview article#brand-dashboard div {
+    display:flex;
+    gap: 1rem;
+    align-items:baseline;
+    margin:0;
+}
+
+#brand-overview #brand-displays {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 1rem;
+    width:fit-content;
+    padding:1rem;
+}
+
+#brand-overview #brand-displays img {
+    height: 300px;
+}

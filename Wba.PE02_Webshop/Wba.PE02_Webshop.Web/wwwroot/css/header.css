@@ -1,0 +1,37 @@
+﻿header ul li {
+    position: relative;
+}
+
+header ul li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background-color: black;
+    transition: width 0.3s ease;
+    }
+
+header ul li:hover::after {
+    width: 100%;
+}
+
+#logo {
+    height: 120px;
+    width: auto;
+}
+
+.dropdown-menu > * {
+    text-align:center;
+}
+
+.nav-link {
+    font-weight:300;
+    font-size:large;
+}
+
+#promo-link {
+    background-color: yellow;
+}

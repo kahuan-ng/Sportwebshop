@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Admin Overview - Categories";
+
+    ViewBag.Controller = "Category";
+    ViewBag.Update = "UpdateCategory";
+    ViewBag.Delete = "ConfirmDeleteCategory";
+    ViewBag.Add = "AddCategory";
+    ViewBag.Review = "ReviewsCategory";
+
+
+    @if (Model.Objects.Count == 1)
+    {
+        ViewBag.Object = "Category";
+    }
+
+    else
+    {
+        ViewBag.Object = "Categories";
+    }
+}
+
+<partial name="_AdminOverviewPartialView" model="Model"></partial>

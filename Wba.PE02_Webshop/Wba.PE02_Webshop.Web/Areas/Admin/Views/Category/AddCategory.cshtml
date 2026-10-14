@@ -1,0 +1,17 @@
+﻿@model CategoryAddCategoryViewModel;
+@{
+    ViewData["Title"] = "AddCategory";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-area="Admin" asp-controller="Category" asp-action="AddCategory" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label asp-for="Category" class="col-form-label"></label>
+        <input asp-for="Category" class="form-control" />
+        <span asp-validation-for="Category" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-outline-dark" type="submit">Save</button>
+    <a class="btn btn-outline-primary" asp-area="Admin" asp-route="CategoriesAdminOverview">Cancel</a>
+</form>

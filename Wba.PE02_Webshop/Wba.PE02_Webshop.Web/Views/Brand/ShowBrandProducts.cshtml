@@ -1,0 +1,23 @@
+﻿@model BrandShowBrandProductsViewModel
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/products.css" />
+}
+
+<div id="filter">
+    <partial name="SideBarPartialView"></partial>
+    <main id="catalog">
+        <header>
+            <h1>@ViewData["Title"]</h1>
+            <p id="product-count">@Model.BrandProducts.Count artikelen</p>
+        </header>
+
+        <section id="showcase-brandproducts-cards">
+            @foreach (var bp in Model.BrandProducts)
+            {
+                <partial name="ProductsPartialView" model="@bp"></partial>
+
+            }
+        </section>
+    </main>
+</div>

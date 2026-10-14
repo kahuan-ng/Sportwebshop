@@ -1,0 +1,47 @@
+﻿@using Wba.PE02_Webshop.Web.ViewModels.SportproductViewModels
+@model SportProductIndexViewModel
+@{
+    ViewData["Title"] = "Sportproducts";
+}
+
+<h1>Webshop: Sportproducts</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ProductImage</th>
+            <th>ProductId</th>
+            <th>Product</th>
+            <th>Brand</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Features</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sp in Model.Sportproducts)
+        {
+            <tr>
+                <td><img asp-append-version="true" src=/images/@sp.ProductImage alt="ProductImage-@sp.ProductImage"></td>
+                <td>@sp.BaseId</td>
+                <td><a asp-controller="sportproduct" asp-action="showproduct" asp-route-movieId=@sp.BaseId class="btn btn-primary" role="button">@sp.BaseContent</a></td>
+                <td>@sp.ProductBrand.BrandName</td>
+                <td>@sp.ProductCategory.Type</td>
+                <td>@sp.ProductPrice</td>
+                <td>@sp.ProductRating</td>
+
+                <td> 
+                    @foreach (var f in @sp.ProductFeatures)
+                    {
+                        <ul>
+                            <li>@f.Attribute</li>
+                        </ul>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+

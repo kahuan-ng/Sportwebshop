@@ -1,0 +1,17 @@
+﻿@section Styles {
+    <link rel="stylesheet" href="~/css/admin.css" />
+}
+
+<h1>@ViewData["title"]</h1>
+<p id="underline"></p>
+
+<main id="admin-overview">
+    <div id="admin-header">Admin Overviews</div>
+
+    <div id="admin-links">
+        <a asp-area="Admin" asp-route="SportproductsAdminOverview" class="btn btn-primary">Sportproduct</a>
+        <a asp-area="Admin" asp-route="BrandsAdminOverview" class="btn btn-danger">Brands</a>
+        <a asp-area="Admin" asp-route="CategoriesAdminOverview" class="btn btn-success">Categories</a>
+        <a asp-area="Admin" asp-route="FeaturesAdminOverview" class="btn btn-warning">Features</a>
+    </div>
+</main>

@@ -1,0 +1,56 @@
+﻿@model SportproductsAddNewProductViewModel
+@{
+    ViewData["Title"] = "AddSportproduct";
+}
+
+<h1>AddStudent</h1>
+
+<form asp-area="Admin" asp-controller="SportProducts" asp-action="AddSportproduct" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label asp-for="SportproductName" class="col-form-label"></label>
+        <input asp-for="SportproductName" class="form-control" />
+        <span asp-validation-for="SportproductName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Price" class="col-form-label"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Rating" class="col-form-label"></label>
+        <input asp-for="Rating" class="form-control" />
+        <span asp-validation-for="Rating" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="SelectedBrand" class="col-form-label"></label>
+        <select class="form-select" asp-items="@Model.Brands" asp-for="SelectedBrand">
+            <option>Select a brand</option>
+        </select>
+        <span asp-validation-for="SelectedBrand" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="SelectedCategory" class="col-form-label"></label>
+        <select class="form-select" asp-items="@Model.Categories" asp-for="SelectedCategory">
+        </select>
+        <span asp-validation-for="SelectedCategory" class="text-danger"></span>
+    </div>  
+    
+    <div class="mb-3">
+        <label asp-for="SelectedFeatures" class="col-form-label"></label>
+        <select class="form-select" asp-items="@Model.Features" asp-for="SelectedFeatures" multiple="multiple">
+        </select>
+        <span asp-validation-for="SelectedFeatures" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Image" class="col-form-label"></label>
+        <input asp-for="Image" class="form-control" />
+    </div>
+
+    <button class="btn btn-outline-dark" type="submit">Save</button>
+    <a class="btn btn-outline-primary" asp-area="Admin" asp-route="SportProductsAdminOverview">Cancel</a>
+</form>

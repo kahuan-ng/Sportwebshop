@@ -1,0 +1,16 @@
+﻿@model BrandDeleteBrandViewModel;
+@{
+    ViewData["Title"] = "Confirm Delete?";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-area="Admin" asp-route="DeleteBrand" method="post">
+    <input asp-for="BrandId" />
+    <div class="alert alert-primary">
+        Are you sure you want to delete this brand? : <b>Id: @Model.BrandId  - @Model.BrandName</b>
+    </div>
+
+    <a class="btn btn-danger" asp-area="Admin" asp-route="BrandsAdminOverview">NO</a>
+    <button type="submit" class="btn btn-success">YES</button>
+</form>

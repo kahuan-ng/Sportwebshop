@@ -1,0 +1,23 @@
+﻿@model BrandIndexViewModel
+@{
+    ViewData["Title"] = "Brands";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/brand.css" />
+}
+
+<header id="brands-header">
+    <h1>Brands</h1>
+</header>
+
+<section id="brands-grid">
+    @foreach (var b in Model.Brands)
+    {
+        <a asp-controller="brand" asp-action="showBrandProducts" asp-route-brandkey="@b.BaseContent" class="brand-card">
+            <figure>
+                <img src="~/images/Brands/@b.BrandLogo" alt="@b.BaseContent" />
+            </figure>
+        </a>
+    }
+</section>

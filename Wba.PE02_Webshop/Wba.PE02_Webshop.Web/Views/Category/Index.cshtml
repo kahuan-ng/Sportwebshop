@@ -1,0 +1,24 @@
+﻿@using Wba.PE02_Webshop.Web.ViewModels.CategoryViewModels
+@model CategoryIndexViewModel
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<h1>Categories</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            @foreach (var c in Model.categories)
+            {
+            <tr>
+                @* <td><img asp-append-version="true" src=/images/@sp.ProductImage alt="ProductImage-@sp.ProductImage"></td> *@
+                <td>@c.BaseContent</td>
+            </tr>
+        }
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+

@@ -1,0 +1,26 @@
+﻿@using Wba.PE02_Webshop.Web.ViewModels.SportproductViewModels
+@model SearchProductsFilteredViewModel
+@{
+    ViewData["Title"] = "Producten tussen € 50 en € 100";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/products.css" />
+}
+
+<div id="filter">
+    <partial name="SideBarPartialView"></partial>
+
+    <main id="catalog">
+        <header>
+            <h1>@ViewData["Title"]</h1>
+            <p id="product-count">@Model.FilteredSportProducts.Count artikelen</p>
+        </header>
+
+        <section id="showcase-brandproducts-cards">
+            @foreach (var fp in Model.FilteredSportProducts)
+            {
+                <partial name="ProductsPartialView" model="@fp"></partial>
+            }
+        </section>
+    </main>
+</div>

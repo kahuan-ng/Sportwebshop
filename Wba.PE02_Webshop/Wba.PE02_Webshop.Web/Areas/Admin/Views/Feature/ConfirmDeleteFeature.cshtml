@@ -1,0 +1,16 @@
+﻿@model FeatureDeleteFeatureViewModel
+@{
+    ViewData["Title"] = "Confirm Delete?";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-area="Admin" asp-route="DeleteFeature" method="post">
+    <input asp-for="FeatureId" />
+    <div class="alert alert-primary">
+        Are you sure you want to delete this product? : <b>Id: @Model.FeatureId  - @Model.Attribute</b>
+    </div>
+
+    <a class="btn btn-danger" asp-area="Admin" asp-route="FeaturesAdminOverview">NO</a>
+    <button type="submit" class="btn btn-success">YES</button>
+</form>

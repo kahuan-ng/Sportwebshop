@@ -1,0 +1,23 @@
+﻿@model FeatureAddFeatureViewModel;
+@{
+    ViewData["Title"] = "AddFeature";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-area="Admin" asp-controller="Feature" asp-action="AddFeature" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label asp-for="Attribute" class="col-form-label"></label>
+        <input asp-for="Attribute" class="form-control" />
+        <span asp-validation-for="Attribute" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="AttributeCategory" class="col-form-label"></label>
+        <input asp-for="AttributeCategory" class="form-control" />
+        <span asp-validation-for="AttributeCategory" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-outline-dark" type="submit">Save</button>
+    <a class="btn btn-outline-primary" asp-area="Admin" asp-route="FeaturesAdminOverview">Cancel</a>
+</form>

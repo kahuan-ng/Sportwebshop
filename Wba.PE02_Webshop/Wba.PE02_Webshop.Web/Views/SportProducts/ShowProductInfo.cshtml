@@ -1,0 +1,53 @@
+﻿@using Wba.PE02_Webshop.Web.ViewModels.SportproductViewModels
+@model SportproductShowProductViewModel
+@{
+    ViewData["Title"] = "ShowProductInfo";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/showproduct.css" />
+}
+
+<div class="product-page">
+    <div class="product-images">
+        <img src="~/images/@Model.ProductImage" alt="@Model.BaseContent" class="product-main-img" />
+    </div>
+
+    <!-- Right: Info -->
+    <div class="product-info">
+        <p class="product-brand">@Model.ProductBrand?.BrandName</p>
+        <h1 class="product-name">@Model.BaseContent</h1>
+
+        <p class="product-price">€ @Model.ProductPrice</p>
+
+         <div class="product-rating">
+            @for (int i = 0; i < 5; i++)
+            {
+                if (i < Model.ProductRating)
+                {
+                    <i class="fa-solid fa-star rating-symbol"></i>
+                }
+
+                else
+                {
+                    <i class="fa-regular fa-star"></i>
+                }
+            }
+        </div>
+        
+        <div class="product-features">
+            <p class="features-label">Kenmerken</p>
+            <div class="features-tags">
+                @foreach (var f in Model.ProductFeatures)
+                {
+                    <a class="tag" style="text-decoration:none;color:black" asp-controller="Feature" asp-action="ShowAttributeProducts" asp-route-attributeKey="@f.Attribute">@f.Attribute</a>
+                }
+            </div>
+        </div>
+
+        <div class="product-category">
+            <span>Categorie: <strong>@Model.ProductCategory.Type</strong></span>
+        </div>
+
+        <button class="btn-add">Voeg toe aan winkelmandje</button>
+    </div>
+</div>

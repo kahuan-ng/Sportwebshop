@@ -1,0 +1,59 @@
+﻿@model BrandAdminOverviewViewModel;
+@{
+    ViewData["Title"] = "Admin Overview - Brands";
+
+    @if (Model.Brands.Count == 1)
+    {
+        ViewBag.Object = "Brand";
+    }
+
+    else
+    {
+        ViewBag.Object = "Brands";
+    }
+
+
+    ViewBag.Controller = "Brand";
+    ViewBag.Update = "UpdateBrand";
+    ViewBag.Delete = "ConfirmDeleteBrand";
+    ViewBag.Reviews = "ReviewsBrand";
+    ViewBag.Add = "AddBrand";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/admin.css" />
+}
+
+
+<header class="d-flex flex-column align-items-center mb-3">
+    <h1>@ViewData["Title"]</h1>
+
+    <partial name="_AdminNavigationbarPartialView"></partial>
+</header>
+
+
+<section id="brand-overview" class="shadow">
+    <article id="brand-dashboard" class="bg-body-secondary">
+        <h3 id="brand-header">Brands</h3>
+
+        <div>
+            <a class="btn btn-outline-primary mb-4" asp-area="Admin" asp-route="@ViewBag.Add">Add @ViewBag.Controller</a>
+            <p id="product-count">@ViewBag.Object : @Model.Brands.Count</p>
+        </div>
+    </article>
+
+    <article id="brand-displays">
+            @foreach (var brand in Model.Brands)
+            {
+                <div class="card">
+                    <img src="~/images/Brands/@brand.BrandLogo" class="card-img-top" alt="@brand.BaseContent">
+                    <div class="card-body">
+                        <h5 class="card-title">@brand.BaseContent</h5>
+                        <a asp-area="Admin" asp-route="@ViewBag.Update" asp-route-id="@brand.BaseId" class="btn btn-primary">Update</a>
+                        <a asp-area="Admin" asp-route=@ViewBag.Delete asp-route-id="@brand.BaseId" class="btn btn-outline-danger">Delete</a>
+                        <a class="btn btn-warning" asp-area="" asp-controller="@ViewBag.Controller" asp-action="@ViewBag.Reviews" asp-route-id="@brand.BaseId" class="product-card">Reviews</a>
+                    </div>
+                </div>
+            }
+    </article>
+</section>

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Wba.PE02_Webshop.Web</title>
+    <script type="importmap"></script>
+    @await RenderSectionAsync("Styles", required: false)
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/181045b524.js" crossorigin="anonymous"></script>
+
+    @* ==> CSS stylesheetlinks *@
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/header.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/Wba.PE02_Webshop.Web.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+
+                @*==> NAVIGATION <==*@
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center vstack">
+                    <a asp-area ="" asp-controller="Home" asp-action="Index"><img src="~/images/Logo.png" alt="Logo" id="logo" /></a>
+                    <ul class="navbar-nav">
+                        <li class="nav-item navItemDropdown">
+                            @* Doelgroep link *@
+                            <a class="page-link nav-link text-dark" asp-area="" asp-controller="Category" asp-action="ShowCategoryProducts" asp-route-categoryKey="Clothing">Clothing</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item"  asp-area="" asp-controller="Feature" asp-action="ShowAttributeProducts" asp-route-attributeKey="Male">Men</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Feature" asp-action="ShowAttributeProducts" asp-route-attributeKey="Female">Women</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Feature" asp-action="ShowAttributeProducts" asp-route-attributeKey="Kids">Kids</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item navItemDropdown">
+                            <a class="page-link nav-link text-dark" asp-area="" asp-controller="Brand" asp-action="Index">Brand</a>
+                            <ul class="dropdown-menu">
+                                <p class="container"><strong>Top 3 Merken</strong></p>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Brand" asp-action="ShowBrandProducts" asp-route-brandKey="Optimum Nutrition">Optimum Nutrition</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Brand" asp-action="ShowBrandProducts" asp-route-brandKey="Apherma">Apherma</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Brand" asp-action="ShowBrandProducts" asp-route-brandKey="Adidas">Adidas</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item navItemDropdown">
+                            <a class="page-link nav-link text-dark" asp-area="" asp-controller="Category" asp-action="showCategoryProducts" asp-route-categoryKey="Nutrition">Nutrition</a>
+                        </li>
+
+                        <li class="nav-item navItemDropdown">
+                            <a class="page-link nav-link text-dark" asp-area="" asp-controller="Category" asp-action="showCategoryProducts" asp-route-categoryKey="Equipment">Equipment</a>
+                        </li>
+
+                        <li id="promo-link" class="nav-item navItemDropdown">
+                            <a class="page-link nav-link text-dark" asp-area="" asp-controller="Search" asp-action="ShowPromoProducts">PROMO</a>
+                        </li>
+
+                        <p class="position-absolute end-0 me-3">Klik op de logo -> normal page</p>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2026 - Wba.PE01_Webshop.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

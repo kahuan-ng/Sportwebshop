@@ -1,0 +1,58 @@
+﻿@using Wba.PE02_Webshop.Web.ViewModels.HomeViewModels
+@model HomeIndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/home.css" />
+}
+
+<main>
+    <section id="advertisement">
+        <div class="advertisement-overlay">
+            <p class="advertisement-subhead">Nieuw binnen</p>
+            <h1 class="advertisement-title">Presteer.<br />Gewoon doen.</h1>
+            <a asp-controller="category" asp-action="showcategoryproducts" asp-route-categoryKey="Clothing" class="advertisement-link">Shop nu</a>
+        </div>
+    </section>
+
+    <section id="trends">
+        <p class="subhead">Onze collecties</p>
+        <div class="audience-grid">
+            <a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="Male" id="col-men" class="audience-card">
+                <div class="audience-label">
+                    <span class="audience-tag">Collectie</span>
+                    <h2>Heren</h2>
+                    <span class="audience-link">Ontdek →</span>
+                </div>
+            </a>
+            <a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="Female" id="col-women" class="audience-card">
+                <div class="audience-label">
+                    <span class="audience-tag">Collectie</span>
+                    <h2>Dames</h2>
+                    <span class="audience-link">Ontdek →</span>
+                </div>
+            </a>
+            <a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="Kids" id="col-kids" class="audience-card">
+                <div class="audience-label">
+                    <span class="audience-tag">Collectie</span>
+                    <h2>Kids</h2>
+                    <span class="audience-link">Ontdek →</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- BRANDS -->
+    <section id="brands">
+        <p class="subhead">Top merken</p>
+        <div id="showcase-brands">
+            @foreach (var b in Model.Brands)
+            {
+                <a asp-controller="Brand" asp-action="ShowBrandProducts" asp-route-brandKey="@b.BaseContent" class="brand-item">
+                    <img src="/images/brands/@b.BrandLogo" alt="@(b.BaseContent)-logo" class="brand-logo" />
+                </a>
+            }
+        </div>
+    </section>
+</main>

@@ -1,0 +1,80 @@
+﻿<nav id="filter-list">
+    <section class="filter-group">
+        <h3>Categorie</h3>
+        <ul>
+            <li><a asp-controller="category" asp-action="showcategoryproducts" asp-route-categorykey="Clothing">Clothing</a></li>
+            <li><a asp-controller="category" asp-action="showcategoryproducts" asp-route-categorykey="Nutrition">Nutrition</a></li>
+            <li><a asp-controller="category" asp-action="showcategoryproducts" asp-route-categorykey="Equipment">Equipment</a></li>
+        </ul>
+    </section>
+
+    <section class="filter-group">
+        <h3>Merk</h3>
+        <ul>
+            <li><a asp-controller="brand" asp-action="showbrandproducts" asp-route-brandkey="Nike">Nike</a></li>
+            <li><a asp-controller="brand" asp-action="showbrandproducts" asp-route-brandkey="Adidas">Adidas</a></li>
+            <li><a asp-controller="brand" asp-action="showbrandproducts" asp-route-brandkey="Puma">Puma</a></li>
+            <li><a asp-controller="brand" asp-action="showbrandproducts" asp-route-brandkey="Reebok">Reebok</a></li>
+            <li><a asp-controller="brand" asp-action="showbrandproducts" asp-route-brandkey="Under Armour">Under Armour</a></li>
+            <li><a asp-controller="brand" asp-action="showbrandproducts" asp-route-brandkey="New Balance">New Balance</a></li>
+            <li><a asp-controller="brand" asp-action="showbrandproducts" asp-route-brandkey="Asics">Asics</a></li>
+            <li><a asp-controller="brand" asp-action="showbrandproducts" asp-route-brandkey="Fila">Fila</a></li>
+            <li><a asp-controller="brand" asp-action="showbrandproducts" asp-route-brandkey="Naak">Naak</a></li>
+            <li><a asp-controller="brand" asp-action="showbrandproducts" asp-route-brandkey="Lucavitaal">Lucavitaal</a></li>
+            <li><a asp-controller="brand" asp-action="showbrandproducts" asp-route-brandkey="Optimum Nutrition">Optimum Nutrition</a></li>
+            <li><a asp-controller="brand" asp-action="showbrandproducts" asp-route-brandkey="Action">Action</a></li>
+            <li><a asp-controller="brand" asp-action="showbrandproducts" asp-route-brandkey="Apherma">Apherma</a></li>
+            <li><a asp-controller="brand" asp-action="showbrandproducts" asp-route-brandkey="Fitness Speed">Fitness Speed</a></li>
+        </ul>
+    </section>
+
+    <section class="filter-group">
+        <h3>Kenmerken</h3>
+
+        <article class="filter-subgroup">
+            <h4>Kleur</h4>
+            <ul>
+                <li><a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="Black">Black</a></li>
+                <li><a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="White">White</a></li>
+                <li><a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="Red">Red</a></li>
+                <li><a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="Blue">Blue</a></li>
+                <li><a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="Green">Green</a></li>
+                <li><a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="Pink">Pink</a></li>
+                <li><a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="Purple">Purple</a></li>
+                <li><a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="Orange">Orange</a></li>
+                <li><a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="Yellow">Yellow</a></li>
+            </ul>
+        </article>
+
+        <article class="filter-subgroup">
+            <h4>Maat</h4>
+            <ul>
+                <li><a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="XS">XS</a></li>
+                <li><a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="S">S</a></li>
+                <li><a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="M">M</a></li>
+                <li><a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="L">L</a></li>
+                <li><a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="XL">XL</a></li>
+                <li><a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="XXL">XXL</a></li>
+            </ul>
+        </article>
+
+        <article class="filter-subgroup">
+            <h4>Doelgroep</h4>
+            <ul>
+                <li><a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="Male">Male</a></li>
+                <li><a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="Female">Female</a></li>
+                <li><a asp-controller="feature" asp-action="showattributeproducts" asp-route-attributekey="Kids">Kids</a></li>
+            </ul>
+        </article>
+    </section>
+
+    <section class="filter-group">
+        <h3>Prijs</h3>
+        <ul>
+            <li><a asp-controller="search" asp-action="productsunder10euros">Onder € 10</a></li>
+            <li><a asp-controller="search" asp-action="productsbetween10and50euros">€ 10 – € 50</a></li>
+            <li><a asp-controller="search" asp-action="productsbetween50and100euros">€ 50 – € 100</a></li>
+            <li><a asp-controller="search" asp-action="productsabove100euro">Boven € 100</a></li>
+        </ul>
+    </section>
+</nav>

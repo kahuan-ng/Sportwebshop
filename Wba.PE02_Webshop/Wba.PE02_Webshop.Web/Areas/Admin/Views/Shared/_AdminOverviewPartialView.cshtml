@@ -1,0 +1,69 @@
+﻿@model AdminOverviewViewModel
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/admin.css"/>
+}
+
+<main id="AdminOverview">
+    <header class = "d-flex flex-column align-items-center mb-3">
+        <h1 class="text-center">@ViewData["Title"]</h1>
+
+        <div class="d-flex justify-content-center align-items-baseline gap-3 mb-3">
+
+            @if (ViewBag.Controller == "SportProducts")
+            {
+                <a class="btn btn-outline-primary" asp-area="Admin" asp-route="@ViewBag.Add">Add Sportproduct</a>
+            }
+
+            else
+            {
+                <a class="btn btn-outline-primary" asp-area="Admin" asp-route="@ViewBag.Add">Add @ViewBag.Controller</a>
+            }
+
+            <p id="product-count">@Model.Objects.Count @ViewBag.Object</p>
+        </div>
+
+    <partial name="_AdminNavigationbarPartialView"></partial>
+
+    </header>
+
+    <section>
+        <table class="table shadow">
+            <thead class=" table-secondary">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Productname</th>
+
+                    @if (ViewBag.Info == "Sportproduct")
+                    {
+                        <th scope="col">ProductInfo</th>                            
+                    }
+
+                    <th scope="col">Actions</th>
+                    <th scope="col">Reviews</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var o in Model.Objects)
+                {
+                    <tr>
+                        <th scope="row">@o.BaseId</th>
+                        <td>@o.BaseContent</td>
+
+                        @if (ViewBag.Info == "Sportproduct")
+                        {
+                        <td><a class="btn btn-success" asp-area="" asp-controller="sportproducts" asp-action="showproductinfo" asp-route-id="@o.BaseId" class="product-card">Infoview</a></td>                                
+                        }
+
+                        <td id="ProductCRUDActions">
+                            <a asp-area="Admin" asp-route=@ViewBag.Update asp-route-id="@o.BaseId" class="btn btn-primary">Update</a>
+                            <a asp-area="Admin" asp-route=@ViewBag.Delete asp-route-id="@o.BaseId" class="btn btn-outline-danger">Delete</a>
+                        </td>
+
+                        <td><a class="btn btn-warning" asp-area="" asp-controller="@ViewBag.Controller" asp-action="@ViewBag.Reviews" asp-route-id="@o.BaseId" class="product-card">Reviews</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+</main>

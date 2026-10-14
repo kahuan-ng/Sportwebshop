@@ -1,0 +1,12 @@
+﻿@model FilterLinksViewModel;
+
+
+<ul class="list-unstyled">
+
+    @foreach (var filterLink in Model.FilterLinks)
+    {
+        <li class="nav-item mb-2">
+            <a class="btn btn-primary" asp-controller="@filterLink.Controller" asp-action="@filterLink.Action" asp-route-id="@filterLink.Id">@filterLink.Value</a>
+        </li>
+    }
+</ul>

@@ -1,0 +1,16 @@
+﻿@model SportsproductDeleteProductViewModel
+@{
+    ViewData["Title"] = "Confirm Delete?";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-route="DeleteSportproduct" method="post">
+    <input asp-for="Id" />
+    <div class="alert alert-primary">
+        Are you sure you want to delete this product? : <b>Id: @Model.Id  - @Model.productName</b>
+    </div>
+
+    <a class="btn btn-danger" asp-area="Admin" asp-route="SportProductsAdminOverview">NO</a>
+    <button type="submit" class="btn btn-success">YES</button>
+</form>

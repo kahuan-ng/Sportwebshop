@@ -1,0 +1,14 @@
+﻿@using Wba.PE02_Webshop.Web.Areas.Admin.ViewModels.SportproductsViewModels
+@model SportproductShowProductViewModel
+
+<a asp-controller="sportproducts" asp-action="showproductinfo" asp-route-id="@Model.BaseId" class="product-card">
+    <article class="product-img-wrap">
+        <img src="~/images/@Model.ProductImage" alt="@Model.BaseContent" />
+        <button class="wishlist-btn"><i class="fa-regular fa-heart"></i></button>
+    </article>
+    <article class="product-card-info">
+        <span class="product-card-brand">@Model.ProductBrand.BrandName</span>
+        <span class="product-card-name">@Model.BaseContent</span>
+        <span class="product-card-price">€ @Model.ProductPrice</span>
+    </article>
+</a>
